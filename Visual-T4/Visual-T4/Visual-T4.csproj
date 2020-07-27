@@ -49,9 +49,8 @@
     <Content Include="Grammars.pkgdef">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Grammars\Language.plist">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    <None Include="Grammars\cs.tmLanguage" />
+    <None Include="Grammars\Language.tmLanguage" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
