@@ -5,10 +5,9 @@
     <key>name</key>
     <string>C#</string>
     <key>scopeName</key>
-    <string>source.cs</string>
+    <string>t4.source.cs</string>
     <key>fileTypes</key>
     <array>
-      <string>cs</string>
       <string>tt</string>
       <string>ttinclude</string>
     </array>
@@ -17,6 +16,91 @@
     <key>patterns</key>
     <array>
       <dict>
+        <key>begin</key>
+        <string>(&lt;#@)</string>
+        
+        <key>end</key>
+        <string>(#&gt;)</string>
+
+        <key>name</key>
+        <string>text.directive.t4</string>
+        
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>match</key>
+            <string>([tT]emplate|[aA]ssembly|[iI]mport|[iI]nclude|[oO]utput)</string>
+            
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>keyword.other.t4</string>
+              </dict>
+            </dict>
+          </dict>
+
+          <dict>
+            <key>begin</key>
+            <string>\&quot;</string>
+
+            <key>end</key>
+            <string>\&quot;</string>
+
+            <key>name</key>
+            <string>string.quoted.double.t4</string>
+          </dict>
+
+          <dict>
+            <key>match</key>
+            <string>([a-zA-Z0-9]+)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>entity.other.attribute-name.t4</string>
+              </dict>
+            </dict>
+          </dict>
+                    
+        </array>
+      </dict>     
+      
+       <dict>
+        <key>name</key>
+        <string>t4.templates.cs</string>
+        <key>begin</key>
+        <string>(&lt;#[=+]?)</string>
+        <key>end</key>
+        <string>(#&gt;)</string>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#preprocessor</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#directives</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#declarations</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#script-top-level</string>
+          </dict>
+        </array>
+      </dict>
+      
+     <!--<dict>
         <key>include</key>
         <string>#preprocessor</string>
       </dict>
@@ -27,15 +111,14 @@
       <dict>
         <key>include</key>
         <string>#directives</string>
-      </dict>
-      <dict>
+      </dict>      <dict>
         <key>include</key>
         <string>#declarations</string>
       </dict>
       <dict>
         <key>include</key>
         <string>#script-top-level</string>
-      </dict>
+      </dict> -->
     </array>
     <key>repository</key>
     <dict>
