@@ -9,6 +9,8 @@
     <key>fileTypes</key>
     <array>
       <string>cs</string>
+      <string>tt</string>
+      <string>ttinclude</string>
     </array>
     <key>uuid</key>
     <string>f7de61e2-bdde-4e2a-a139-8221b179584e</string>
